@@ -1,0 +1,9 @@
+{
+  "/api": {
+    "target": "http://localhost:4500/exampleapp/rest",
+    "pathRewrite": {
+      "^/api": ""
+    },
+    "logLevel": "debug"
+  }
+}

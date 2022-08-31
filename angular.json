@@ -70,7 +70,8 @@
               "browserTarget": "schulung:build:production"
             },
             "development": {
-              "browserTarget": "schulung:build:development"
+              "browserTarget": "schulung:build:development",
+              "proxyConfig": "src/proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"

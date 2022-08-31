@@ -1,22 +1,23 @@
-import { Component } from '@angular/core';
-import { Product } from '../../model/product';
+import {Component, OnInit} from '@angular/core';
+import {Product} from '../../model/product';
+import {ProductListService} from "../../services/product-list.service";
 
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.less'],
 })
-export class ProductListComponent {
-  products: Product[];
+export class ProductListComponent implements OnInit {
+  products: Product[] = [];
 
   lastProductAddedToCart: Product | undefined;
 
-  constructor() {
-    this.products = [
-      { id: 1, name: 'Toy Race Car', price: '6.99' },
-      { id: 2, name: 'Loaf of Bread', price: '0.99' },
-      { id: 3, name: 'Angular Book', price: '14.29' },
-    ];
+  constructor(private productListService: ProductListService) {
+  }
+
+  ngOnInit() {
+    this.productListService.loadAllProducts$()
+      .subscribe(products => this.products = products);
   }
 
   onProductAddedToCart(product: Product) {

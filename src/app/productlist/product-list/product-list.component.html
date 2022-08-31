@@ -1,0 +1,16 @@
+<h1>Product List</h1>
+<p>We offer the following products:</p>
+
+<app-product-list-item
+  *ngFor="let product of products"
+  [product]="product"
+  (addToCart)="onProductAddedToCart($event)"
+>
+</app-product-list-item>
+
+<div
+  *ngIf="lastProductAddedToCart !== undefined"
+  [ngClass]="{ cart: true, 'high-price': isCartPriceHigh() }"
+>
+  You added {{ lastProductAddedToCart.name }} to cart!
+</div>

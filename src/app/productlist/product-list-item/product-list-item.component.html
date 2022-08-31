@@ -1,0 +1,6 @@
+<ng-container *ngIf="product !== undefined">
+  <b>Name:</b> {{ product.name }}
+  <button (click)="addToCartClicked(product)">Add to Cart</button>
+  <br />
+  <b>Price:</b> {{ product.price | currency: "EUR" }}
+</ng-container>

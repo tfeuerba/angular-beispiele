@@ -1,5 +1,6 @@
 {
   "name": "schulung",
+  "packageManager": "yarn@3.2.3",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",

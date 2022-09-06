@@ -5,3 +5,5 @@ export const addItemToCartAction = createAction(
   '[Product List] Add Item',
   props<{ product: Product }>()
 );
+
+export const loadProductList = createAction('[Product List] Load Products');

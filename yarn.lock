@@ -1786,10 +1786,35 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@ngrx/effects@npm:^13.2.0":
+  version: 13.2.0
+  resolution: "@ngrx/effects@npm:13.2.0"
+  dependencies:
+    tslib: ^2.0.0
+  peerDependencies:
+    "@angular/core": ^13.0.0
+    "@ngrx/store": 13.2.0
+    rxjs: ^6.5.3 || ^7.4.0
+  checksum: 455d964fccd17b229d51f9f48a18a2c7512097632e53247fad63fa43186d29e2c0cdd627a7bf897a3fa689a12455377eaf40c0e34eb065ccd6e60063111deefb
+  languageName: node
+  linkType: hard
+
 "@ngrx/schematics@npm:^13.2.0":
   version: 13.2.0
   resolution: "@ngrx/schematics@npm:13.2.0"
   checksum: d406b08cf90aabdde8d678d12d8f5948cb3b98ede7b928869003b144f8c67edc679a2db1b8cbf54fc22ac2a234e7a412288b6e1d123e23744ef903237917db97
+  languageName: node
+  linkType: hard
+
+"@ngrx/store-devtools@npm:13":
+  version: 13.2.0
+  resolution: "@ngrx/store-devtools@npm:13.2.0"
+  dependencies:
+    tslib: ^2.0.0
+  peerDependencies:
+    "@ngrx/store": 13.2.0
+    rxjs: ^6.5.3 || ^7.4.0
+  checksum: c77ebcabf917e94747678c957d162bcbc689ec82eba552d9e58038d5d055cc5ffa491609a7c22e815b1d5cb2bf72365720ba6b1697c26d8337c23adf738a9a20
   languageName: node
   linkType: hard
 
@@ -4975,6 +5000,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"immer@npm:^9.0.15":
+  version: 9.0.15
+  resolution: "immer@npm:9.0.15"
+  checksum: 92e3d63e810e3c3c2bb61b70c45443e37ef983ad12924e3edaf03725ae5979618f5b473439bb3bb4a8c4769f25132f18dec10ea15c40f0b20da5691ff96ff611
+  languageName: node
+  linkType: hard
+
 "immutable@npm:^4.0.0":
   version: 4.1.0
   resolution: "immutable@npm:4.1.0"
@@ -7768,10 +7800,13 @@ __metadata:
     "@angular/platform-browser": ~13.3.0
     "@angular/platform-browser-dynamic": ~13.3.0
     "@angular/router": ~13.3.0
+    "@ngrx/effects": ^13.2.0
     "@ngrx/schematics": ^13.2.0
     "@ngrx/store": ^13.2.0
+    "@ngrx/store-devtools": 13
     "@types/jasmine": ~3.10.0
     "@types/node": ^12.11.1
+    immer: ^9.0.15
     jasmine-core: ~4.0.0
     karma: ~6.3.0
     karma-chrome-launcher: ~3.1.0

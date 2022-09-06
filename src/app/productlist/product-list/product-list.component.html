@@ -1,12 +1,16 @@
 <h1>Product List</h1>
 <p>We offer the following products:</p>
 
-<app-product-list-item
-  *ngFor="let product of products"
-  [product]="product"
-  (addToCart)="onProductAddedToCart($event)"
->
-</app-product-list-item>
+<div *ngIf="(products$ | async) !== undefined">
+  <app-product-list-item
+    *ngFor="let product of products$ | async"
+    [product]="product"
+    (addToCart)="onProductAddedToCart($event)"
+  >
+  </app-product-list-item>
+</div>
+
+<p-progressSpinner *ngIf="loading$ | async"></p-progressSpinner>
 
 <div
   *ngIf="(lastItemAddedToCart$ | async) !== undefined"

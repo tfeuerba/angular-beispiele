@@ -1,0 +1,9 @@
+<h1>Shopping cart</h1>
+
+<ul>
+  <li *ngFor="let product of cartItems$ | async | keyvalue">
+    {{ product.value }}x {{ product.key }}
+  </li>
+</ul>
+
+<div *ngIf="shoppingCartEmpty$ | async">Your shopping cart is empty.</div>

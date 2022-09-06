@@ -1,0 +1,7 @@
+<h1>{{ (product$ | async)?.name }}</h1>
+
+<p><b>ID:</b> {{ (product$ | async)?.id }}</p>
+
+<p><b>Price:</b> {{ (product$ | async)?.price | currency: "EUR" }}</p>
+
+<p><b>Description:</b> {{ (product$ | async)?.description }}</p>

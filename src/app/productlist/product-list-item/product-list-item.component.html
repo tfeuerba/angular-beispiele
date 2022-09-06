@@ -2,5 +2,6 @@
   <b>Name:</b> {{ product.name }}
   <button (click)="addToCartClicked(product)">Add to Cart</button>
   <br />
-  <b>Price:</b> {{ product.price | currency: "EUR" }}
+  <b>Price:</b> {{ product.price | currency: "EUR" }}<br />
+  <a [routerLink]="['/product', product.id]">Details</a>
 </ng-container>

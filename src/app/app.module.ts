@@ -2,13 +2,21 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { ProductListComponent } from './productlist/product-list/product-list.component';
-import { ProductListItemComponent } from './productlist/product-list-item/product-list-item.component';
-import {HttpClientModule} from "@angular/common/http";
+import { HttpClientModule } from '@angular/common/http';
+import { ProductlistModule } from './productlist/productlist.module';
+import { ShoppingCartModule } from './shopping-cart/shopping-cart.module';
+import { RouterModule } from '@angular/router';
+import { appRoutes } from './app-routes';
 
 @NgModule({
-  declarations: [AppComponent, ProductListComponent, ProductListItemComponent],
-  imports: [BrowserModule, HttpClientModule],
+  declarations: [AppComponent],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    ProductlistModule,
+    ShoppingCartModule,
+    RouterModule.forRoot(appRoutes),
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

@@ -9,8 +9,8 @@
 </app-product-list-item>
 
 <div
-  *ngIf="lastProductAddedToCart !== undefined"
-  [ngClass]="{ cart: true, 'high-price': isCartPriceHigh() }"
+  *ngIf="(getLastItemAddedToCart$() | async) !== undefined"
+  [ngClass]="{ cart: true, 'high-price': (isCartPriceHigh$() | async) }"
 >
-  You added {{ lastProductAddedToCart.name }} to cart!
+  You added {{ (getLastItemAddedToCart$() | async)?.name }} to cart!
 </div>

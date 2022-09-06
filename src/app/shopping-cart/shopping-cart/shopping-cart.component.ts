@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
-import { ShoppingCartService } from '../../services/shopping-cart.service';
-import { map, Observable } from 'rxjs';
-
-type ShoppingMap = { [name: string]: number };
+import { Store } from '@ngrx/store';
+import * as ShoppingCartSelectors from '../../reducers/shopping-cart.selectors';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -10,26 +8,13 @@ type ShoppingMap = { [name: string]: number };
   styleUrls: ['./shopping-cart.component.less'],
 })
 export class ShoppingCartComponent {
-  constructor(private shoppingCartService: ShoppingCartService) {}
+  readonly shoppingCartEmpty$ = this.store.select(
+    ShoppingCartSelectors.selectIsCartEmpty
+  );
 
-  get cartItems$(): Observable<ShoppingMap> {
-    return this.shoppingCartService.getCart$().pipe(
-      map((items) => {
-        const shoppingMap: ShoppingMap = {};
-        for (let item of items) {
-          if (!shoppingMap.hasOwnProperty(item.name)) {
-            shoppingMap[item.name] = 0;
-          }
-          shoppingMap[item.name]++;
-        }
-        return shoppingMap;
-      })
-    );
-  }
+  readonly cartItems$ = this.store.select(
+    ShoppingCartSelectors.selectProductQuantityMap
+  );
 
-  get shoppingCartEmpty$(): Observable<boolean> {
-    return this.shoppingCartService
-      .getCart$()
-      .pipe(map((items) => items.length === 0));
-  }
+  constructor(private store: Store) {}
 }

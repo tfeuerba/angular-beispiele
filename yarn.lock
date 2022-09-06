@@ -1786,6 +1786,25 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@ngrx/schematics@npm:^13.2.0":
+  version: 13.2.0
+  resolution: "@ngrx/schematics@npm:13.2.0"
+  checksum: d406b08cf90aabdde8d678d12d8f5948cb3b98ede7b928869003b144f8c67edc679a2db1b8cbf54fc22ac2a234e7a412288b6e1d123e23744ef903237917db97
+  languageName: node
+  linkType: hard
+
+"@ngrx/store@npm:^13.2.0":
+  version: 13.2.0
+  resolution: "@ngrx/store@npm:13.2.0"
+  dependencies:
+    tslib: ^2.0.0
+  peerDependencies:
+    "@angular/core": ^13.0.0
+    rxjs: ^6.5.3 || ^7.4.0
+  checksum: c0af4b1d61d3e445b179575b253839139e65e5215ce22010c975ebac5c86339fee13deb8aa27be224010aa4aad872e929a19795679bf9e1de18f263547269fdd
+  languageName: node
+  linkType: hard
+
 "@ngtools/webpack@npm:13.3.9":
   version: 13.3.9
   resolution: "@ngtools/webpack@npm:13.3.9"
@@ -7749,6 +7768,8 @@ __metadata:
     "@angular/platform-browser": ~13.3.0
     "@angular/platform-browser-dynamic": ~13.3.0
     "@angular/router": ~13.3.0
+    "@ngrx/schematics": ^13.2.0
+    "@ngrx/store": ^13.2.0
     "@types/jasmine": ~3.10.0
     "@types/node": ^12.11.1
     jasmine-core: ~4.0.0
@@ -8493,7 +8514,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tslib@npm:^2.1.0, tslib@npm:^2.3.0":
+"tslib@npm:^2.0.0, tslib@npm:^2.1.0, tslib@npm:^2.3.0":
   version: 2.4.0
   resolution: "tslib@npm:2.4.0"
   checksum: 8c4aa6a3c5a754bf76aefc38026134180c053b7bd2f81338cb5e5ebf96fefa0f417bff221592bf801077f5bf990562f6264fecbc42cd3309b33872cb6fc3b113

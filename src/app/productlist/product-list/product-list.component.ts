@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../../model/product';
 import { ProductListService } from '../../services/product-list.service';
-import { ShoppingCartService } from '../../services/shopping-cart.service';
 import { distinctUntilChanged, map, Observable } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { addItemToCartAction } from '../../reducers/product-list.actions';
+import * as ShoppingCartSelectors from '../../reducers/shopping-cart.selectors';
 
 @Component({
   selector: 'app-product-list',
@@ -12,9 +14,13 @@ import { distinctUntilChanged, map, Observable } from 'rxjs';
 export class ProductListComponent implements OnInit {
   products: Product[] = [];
 
+  lastItemAddedToCart$ = this.store.select(
+    ShoppingCartSelectors.selectLastAddedProduct
+  );
+
   constructor(
     private productListService: ProductListService,
-    private shoppingCartService: ShoppingCartService
+    private store: Store
   ) {}
 
   ngOnInit() {
@@ -24,24 +30,11 @@ export class ProductListComponent implements OnInit {
   }
 
   onProductAddedToCart(product: Product) {
-    this.shoppingCartService.addToShoppingCart(product);
-  }
-
-  getLastItemAddedToCart$(): Observable<Product | undefined> {
-    return this.shoppingCartService.getCart$().pipe(
-      distinctUntilChanged(),
-      map((itemList) => {
-        if (!itemList.length) {
-          return undefined;
-        } else {
-          return itemList[itemList.length - 1];
-        }
-      })
-    );
+    this.store.dispatch(addItemToCartAction({ product }));
   }
 
   isCartPriceHigh$(): Observable<boolean> {
-    return this.getLastItemAddedToCart$().pipe(
+    return this.lastItemAddedToCart$.pipe(
       distinctUntilChanged(),
       map((product) => {
         const price = product?.price;

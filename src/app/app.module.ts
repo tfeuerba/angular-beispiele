@@ -5,6 +5,8 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { StoreModule } from '@ngrx/store';
+import { reducers, metaReducers } from './reducers';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: 'products-list', pathMatch: 'full' },
@@ -38,6 +40,9 @@ const appRoutes: Routes = [
     HttpClientModule,
     RouterModule.forRoot(appRoutes),
     NoopAnimationsModule,
+    StoreModule.forRoot(reducers, {
+      metaReducers,
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent],

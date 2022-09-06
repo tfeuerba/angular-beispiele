@@ -1,0 +1,32 @@
+<h1>Create new product</h1>
+
+<p-messages [(value)]="validationMessages" [enableService]="false"></p-messages>
+
+<form [formGroup]="formGroup" (submit)="onFormSubmit()">
+  <div>
+    <label>
+      Name
+      <input type="text" pInputText formControlName="name" />
+    </label>
+  </div>
+
+  <div>
+    <label>
+      Price
+      <p-inputNumber
+        formControlName="price"
+        mode="currency"
+        currency="EUR"
+      ></p-inputNumber>
+    </label>
+  </div>
+
+  <div>
+    <label>
+      Description
+      <textarea pInputTextarea formControlName="description"></textarea>
+    </label>
+  </div>
+
+  <button type="submit">Create Product</button>
+</form>

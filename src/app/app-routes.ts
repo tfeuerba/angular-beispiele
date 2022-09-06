@@ -1,11 +1,19 @@
 import { Routes } from '@angular/router';
-import { ProductListComponent } from './productlist/product-list/product-list.component';
-import { ShoppingCartComponent } from './shopping-cart/shopping-cart/shopping-cart.component';
-import { ProductDetailsComponent } from './productlist/product-details/product-details.component';
 
 export const appRoutes: Routes = [
-  { path: 'products-list', component: ProductListComponent },
-  { path: 'shopping-cart', component: ShoppingCartComponent },
-  { path: 'product/:id', component: ProductDetailsComponent },
+  {
+    path: 'products-list',
+    loadChildren: () =>
+      import('./productlist/productlist.module').then(
+        (m) => m.ProductlistModule
+      ),
+  },
+  {
+    path: 'shopping-cart',
+    loadChildren: () =>
+      import('./shopping-cart/shopping-cart.module').then(
+        (m) => m.ShoppingCartModule
+      ),
+  },
   { path: '', redirectTo: 'products-list', pathMatch: 'full' },
 ];

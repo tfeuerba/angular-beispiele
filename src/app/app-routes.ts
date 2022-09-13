@@ -1,4 +1,6 @@
 import { Routes } from '@angular/router';
+import { LoginComponent } from './login/login.component';
+import { IsAuthorizedGuard } from './guards/is-authorized.guard';
 
 export const appRoutes: Routes = [
   {
@@ -14,6 +16,8 @@ export const appRoutes: Routes = [
       import('./shopping-cart/shopping-cart.module').then(
         (m) => m.ShoppingCartModule
       ),
+    canActivate: [IsAuthorizedGuard],
   },
+  { path: 'login', component: LoginComponent },
   { path: '', redirectTo: 'products-list', pathMatch: 'full' },
 ];
